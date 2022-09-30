@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('terms-and-conditions', 'HomeController@terms_and_conditions')->name('terms-and-conditions');
-Route::get('about-us', 'HomeController@about_us')->name('about-us');
-Route::get('contact-us', 'HomeController@contact_us')->name('contact-us');
-Route::get('privacy-policy', 'HomeController@privacy_policy')->name('privacy-policy');
-Route::post('newsletter/subscribe', 'NewsletterController@newsLetterSubscribe')->name('newsletter.subscribe');
+// Route::get('/', 'HomeController@index')->name('home');
+// Route::get('terms-and-conditions', 'HomeController@terms_and_conditions')->name('terms-and-conditions');
+// Route::get('about-us', 'HomeController@about_us')->name('about-us');
+// Route::get('contact-us', 'HomeController@contact_us')->name('contact-us');
+// Route::get('privacy-policy', 'HomeController@privacy_policy')->name('privacy-policy');
+// Route::post('newsletter/subscribe', 'NewsletterController@newsLetterSubscribe')->name('newsletter.subscribe');
 Route::get('authentication-failed', function () {
     $errors = [];
     array_push($errors, ['code' => 'auth-001', 'message' => 'Unauthenticated.']);
@@ -55,9 +55,9 @@ Route::get('pay-stripe/fail', 'StripePaymentController@fail')->name('pay-stripe.
 Route::get('paywithrazorpay', 'RazorPayController@payWithRazorpay')->name('paywithrazorpay');
 Route::post('payment-razor/{order_id}', 'RazorPayController@payment')->name('payment-razor');
 
-/*Route::fallback(function () {
+Route::fallback(function () {
 return redirect('/admin/auth/login');
-});*/
+});
 
 Route::get('payment-success', 'PaymentController@success')->name('payment-success');
 Route::get('payment-fail', 'PaymentController@fail')->name('payment-fail');
